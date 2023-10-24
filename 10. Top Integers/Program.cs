@@ -1,6 +1,15 @@
 ﻿//•	Reads sequence of integer numbers from the first line of the console
 //•	Find all the top integers in a sequence
 //•	Top integer is an integer that is bigger than all the elements to its right
+//
+//     Input                   Output
+//    1 4 3 2	                4 3 2
+//    14 24 3 19 15 17          24 19 17
+//    27 9 42 2 13 45 48        48 
+//
+//
+
+
 
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
@@ -20,5 +29,15 @@ for (int i = 0; i < input.Count-1; i++)
             output.Add(first);
         }
  }
- output.Add(input[input.Count - 1]);
+int lastElement = input[input.Count - 1];
+if(output.Count>0 && lastElement > output[output.Count - 1])
+{
+    output.Clear();
+    output.Add(lastElement);
+}
+else
+{
+    output.Add(lastElement);
+}
+
 Console.WriteLine(string.Join(" ", output));
